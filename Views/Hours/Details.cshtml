@@ -1,0 +1,36 @@
+﻿@model PlanningGenerator.Models.Pln.Hour
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._hour)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model._hour)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model._minutes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model._minutes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model._hms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model._hms)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

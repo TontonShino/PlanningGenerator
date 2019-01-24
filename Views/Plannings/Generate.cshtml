@@ -1,0 +1,204 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.Dhe>
+@using PlanningGenerator.Models.Pln
+@{
+    ViewData["Title"] = "Generate";
+    List<PostRegisterd> posts = ViewBag.Dhes;
+    List<Day> days = ViewBag.Days;
+    List<Hour> hours = ViewBag.Hours;
+    
+}
+
+
+
+
+@foreach (var p in posts)
+{
+    <div class="container">
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Lundi</th>
+                    <th scope="col">Mardi</th>
+                    <th scope="col">Mercredi</th>
+                    <th scope="col">Jeudi</th>
+                    <th scope="col">Vendredi</th>
+                    <th scope="col">Samedi</th>
+                    <th scope="col">Dimanche</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>                    
+                    <td>@p.Monday.Count Plots</td>
+                    <td>@p.Tuesday.Count Plots</td>
+                    <td>@p.Wednesay.Count Plots</td>
+                    <td>@p.Thursday.Count Plots</td>
+                    <td>@p.Friday.Count Plots</td>
+                    <td>@p.Saturday.Count Plots</td>
+                    <td>@p.Sunday.Count Plots </td>
+                </tr>
+            </tbody>
+        </table>
+
+    
+    </div>
+ 
+    <div style="overflow-x:auto;">
+    
+        <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th colspan="12" style="text-align:center">@p.Post.Nom</th>
+
+            </tr>
+            <tr>
+                <th>
+                    #
+                </th>
+                @foreach (var h in hours)
+                {
+                    <th>@h.Id</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                @for (int i = 0; i < p.Monday.Count; i++)
+                {
+                    @if (i == 0 && p.Monday.Any())
+                    {
+                        <th>Lundi</th>
+                    }
+                    
+                    @if (p.Monday[i].Employe != null)
+                    {
+                        <td>@p.Monday[i].Employe.Nom @p.Monday[i].Employe.Prenom</td>
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+                    }
+
+                }
+            </tr>
+            <tr>
+
+                @for (int i = 0; i < p.Tuesday.Count; i++)
+                {
+                    @if (i == 0 && p.Tuesday.Any())
+                    {
+                        <th>Mardi</th>
+                    }
+                    @if(p.Tuesday[i].Employe != null)
+                    {
+                        <td>@p.Tuesday[i].Employe.Nom @p.Tuesday[i].Employe.Prenom</td>
+                    }else
+                    {
+                        <td>Non attribué</td>
+                    }
+                }
+            </tr>
+
+            <tr>
+
+                @for (int i = 0; i < p.Wednesay.Count; i++)
+                {
+                    @if (i == 0 && p.Wednesay.Any())
+                    {
+                        <th>Mercredi</th>
+                    }
+                    @if(p.Wednesay[i].Employe !=null)
+                    {
+                        <td>@p.Wednesay[i].Employe.Nom @p.Wednesay[i].Employe.Prenom</td>
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+                    }
+                }
+            </tr>
+            <tr>
+
+                @for (int i = 0; i < p.Thursday.Count; i++)
+                {
+                    @if (i == 0 && p.Thursday.Any())
+                    {
+                        <th>Jeudi</th>
+                    }
+                    @if (p.Thursday[i].Employe != null)
+                    {
+                        <td>@p.Thursday[i].Employe.Nom @p.Thursday[i].Employe.Prenom</td>
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+                    }
+
+                }
+            </tr>
+            <tr>
+
+                @for (int i = 0; i < p.Friday.Count; i++)
+                {
+                    @if (i == 0 && p.Friday.Any())
+                    {
+                        <th>Vendredi</th>
+                    }
+                    @if (p.Friday[i].Employe != null)
+                    {
+                        <td>@p.Friday[i].Employe.Nom @p.Friday[i].Employe.Prenom</td>
+
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+
+                    }
+                }
+            </tr>
+            <tr>
+
+                @for (int i = 0; i < p.Saturday.Count; i++)
+                {
+                    @if (i == 0 && p.Saturday.Any())
+                    {
+                        <th>Samedi</th>
+                    }
+                    @if (p.Saturday[i].Employe != null)
+                    {
+                        <td>@p.Saturday[i].Employe.Nom @p.Saturday[i].Employe.Prenom</td>
+
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+
+                    }
+                }
+            </tr>
+            <tr>
+
+                @for (int i = 0; i < p.Sunday.Count; i++)
+                {
+                    @if (i == 0 && p.Sunday.Any())
+                    {
+                        <th>Dimanche</th>
+                    }
+                    @if (p.Sunday[i].Employe != null)
+                    {
+                        <td>@p.Sunday[i].Employe.Nom @p.Sunday[i].Employe.Prenom</td>
+
+                    }
+                    else
+                    {
+                        <td>Non attribué</td>
+
+                    }
+                }
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+        }
+   

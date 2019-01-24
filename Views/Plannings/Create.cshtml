@@ -1,0 +1,75 @@
+﻿@model PlanningGenerator.Models.Pln.Planning
+
+@{
+    ViewData["Title"] = "Création Planning";
+}
+<div class="container">
+    <h2>Création Planning</h2>
+
+    <h4>Planning</h4>
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Groupe de poste</label>
+                    <select asp-for="GroupPostCatId" class="form-control" asp-items="ViewBag.GroupPostCatId"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Groupe d'employés</label>
+                    <select asp-for="GroupEmpCatId" class="form-control" asp-items="ViewBag.GroupEmpCatId"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Début - Jour</label>
+                    <select asp-for="StartingDayId" class="form-control" asp-items="ViewBag.Days"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Fin - Jour</label>
+                    <select asp-for="EndingDayId" class="form-control" asp-items="ViewBag.Days"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Début - horaire</label>
+                    <select asp-for="StartingHourId" class="form-control" asp-items="ViewBag.Hours"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Fin - horaire</label>
+                    <select asp-for="EndingHourId" class="form-control" asp-items="ViewBag.Hours"></select>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="FullJourney" type="checkbox" /> @Html.DisplayNameFor(model => model.FullJourney)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="FullWeek" type="checkbox" /> @Html.DisplayNameFor(model => model.FullWeek)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="btn-group">
+                        <input type="submit" value="Créer planning" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-danger">Retour à la liste</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model PlanningGenerator.Models.Pln.Hour
+
+@{
+    ViewData["Title"] = "Création Heures";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <h4>Heure</h4>
+
+
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="_hour" class="control-label"></label>
+                    <input asp-for="_hour" class="form-control" />
+                    <span asp-validation-for="_hour" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="_minutes" class="control-label"></label>
+                    <input asp-for="_minutes" class="form-control" />
+                    <span asp-validation-for="_minutes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="_hms" class="control-label"></label>
+                    <input asp-for="_hms" class="form-control" />
+                    <span asp-validation-for="_hms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-danger">Retour à la liste</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

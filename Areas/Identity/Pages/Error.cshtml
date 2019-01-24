@@ -1,0 +1,24 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Erreur";
+}
+<div class="container-fluid">
+    <h1 class="text-danger">Erreur.</h1>
+    <h2 class="text-danger">Une erreur sauvage est apparu à la suite de votre requête.</h2>
+
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Requête ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+
+    <h3>Mode développement</h3>
+    <p>
+        Passer en mode <strong>Développement</strong> affichera davantages d'information sur le/les erreurs.
+    </p>
+    <p>
+        <strong>Le mode développement ne devrait être déployé dans un environnement de production</strong>, Cela peux resulter l'affichage d'exceptions présentant des données sensible aux utilisateurs de l'application.  Pour un debuggage en local(test), l'environnement de developpement peut être activé dans le paramètre  <strong>ASPNETCORE_ENVIRONMENT</strong> (environment variable) vers  <strong>Development</strong>, et redémarrer l'application.
+    </p>
+</div>

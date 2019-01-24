@@ -1,0 +1,48 @@
+﻿@model PlanningGenerator.Models.Pln.TypeEmp
+
+@{
+    ViewData["Title"] = "Création Type d'employé";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <h4>Type d'employé</h4>
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NbHeure" class="control-label"></label>
+                    <input asp-for="NbHeure" class="form-control" />
+                    <span asp-validation-for="NbHeure" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Half" /> @Html.DisplayNameFor(model => model.Half)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group btn-group">
+                    <input type="submit" value="Ajouter" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-danger">Retour à la liste</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,36 @@
+﻿@model PlanningGenerator.Models.Pln.GroupEmpCat
+
+@{
+    ViewData["Title"] = "Création de groupe";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <h4>Groupe</h4>
+    <hr />
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="CreateGroup">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Nom du groupe</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <input type="submit" value="Créer groupe" class="btn btn-success" />
+                        <a asp-action="Index" asp-controller="GroupEmps" class="btn btn-danger">Retour à la liste</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

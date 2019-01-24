@@ -1,0 +1,37 @@
+﻿@model PlanningGenerator.Models.Pln.GroupPostCat
+
+@{
+    ViewData["Title"] = "Suppression de Groupe";
+}
+
+<div class="container">
+    <h2>Suppresion</h2>
+
+    <h3></h3>
+</div>
+<div>
+    <h4>Groupe de poste</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Identifiant groupe
+        </dt>
+        <dd>
+            @Html.DisplayFor(model=>model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteGroup">
+        <input type="hidden" asp-for="Id" />
+        <div class="btn-group">
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </form>
+</div>

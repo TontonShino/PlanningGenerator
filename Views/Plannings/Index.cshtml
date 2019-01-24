@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.Planning>
+
+@{
+    ViewData["Title"] = "Liste des plannings";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <div class="row align-items-center">
+            <a asp-action="Create" class="btn btn-success col">Créer un nouveau planning</a>
+    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Generate" asp-route-id="@item.Id" class="btn btn-success"> Génerer planning</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
+                            <a asp-action="Dupplicate" asp-route-id="@item.Id" class="btn btn-secondary">Duppliquer</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer Planning</a>
+                           
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

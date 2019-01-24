@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.Employe>
+
+@{
+    ViewData["Title"] = "Liste des employés";
+
+}
+<div class="container">
+    <h2>Liste des employés</h2>
+
+    <div class="row align-items-center">
+
+        <a asp-action="Create" class="btn btn-success col">Ajouter un nouvel employé</a>
+
+    </div>
+</div>
+@if (Model.Any() == false)
+{
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <iframe src="https://giphy.com/embed/yoJC2tTYBaYFFlL9AI" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/customer-service-blues-brothers-more-wine-yoJC2tTYBaYFFlL9AI">via GIPHY</a></p>
+            </div>
+        </div>
+        <p>Pauvre serveur il est vide ce serait sympa de remplir son verre.</p>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <div>
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col"> 
+                            @Html.DisplayNameFor(model => model.Nom)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Prenom)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.TypeEmp.Nom)
+                        </th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Prenom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeEmp.Nom)
+
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a> 
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a> 
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Suppression</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

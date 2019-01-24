@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.GroupPostCat>
+
+@{
+    ViewData["Title"] = "Groupe de poste";
+}
+<div class="container">
+    <h3>Groupe de poste</h3>
+
+    <div class="row align-items-center">        
+            <a asp-action="CreateGroup" class="btn btn-success col">Créer un nouveau groupe</a>        
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a asp-action="Gest" asp-route-id="@item.Id" class="btn btn-primary">Gérer postes</a>
+                    <a asp-action="EditGroup" asp-route-id="@item.Id" class="btn btn-secondary">Modifier</a>
+                    <a asp-action="DeleteGroup" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

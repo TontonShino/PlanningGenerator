@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.TypeEmp>
+
+@{
+    ViewData["Title"] = "Types d'employé";
+}
+<div class="container">
+
+    <h2>@ViewData["Title"]</h2>
+    <div class="row align-items-center">
+
+        <a asp-action="Create" class="btn btn-success col">Créer un nouveau type d'employé</a>
+
+    </div>
+</div>
+<div>
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.NbHeure)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Half)
+                </th>
+                <th scope="col">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NbHeure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Half)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+﻿@model PlanningGenerator.Models.Pln.Employe
+
+@{
+    ViewData["Title"] = "Modification Employé";
+}
+<div class="container">
+    <h2>Modifier</h2>
+
+    <h4>Employe</h4>
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prenom" class="control-label"></label>
+                    <input asp-for="Prenom" class="form-control" />
+                    <span asp-validation-for="Prenom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Type d'employé - (Valeur actuelle:@Model.TypeEmp.Nom)</label>
+                    <select asp-for="TypeEmpId" asp-items="ViewBag.TypeEmp" class="form-control"></select>
+                </div>
+
+                <div class="form-group">
+                    <div class="btn-group">
+                        <input type="submit" value="Modifier" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-danger">Retour à la liste</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

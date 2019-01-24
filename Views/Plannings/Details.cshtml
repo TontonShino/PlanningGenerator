@@ -1,0 +1,26 @@
+﻿@model PlanningGenerator.Models.Pln.Planning
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+<h2>Details</h2>
+
+
+    <h4>Planning</h4>
+    <hr />
+    </div>
+<div class="container">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Modifier</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>

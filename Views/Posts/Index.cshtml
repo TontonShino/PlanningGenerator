@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Post>
+
+@{
+    ViewData["Title"] = "Liste des postes";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="row align-items-center">
+        <a asp-action="Create" class="btn btn-success col">Créer un nouveau poste</a>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

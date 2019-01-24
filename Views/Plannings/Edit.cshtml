@@ -1,0 +1,36 @@
+﻿@model PlanningGenerator.Models.Pln.Planning
+
+@{
+    ViewData["Title"] = "Edition Planning";
+}
+<div class="container">
+    <h2>ViewData["Title"]</h2>
+
+    <h4>Planning</h4>
+    <hr />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Enregistrer" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Retour à la liste.</a>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

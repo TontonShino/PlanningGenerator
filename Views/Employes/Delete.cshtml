@@ -1,0 +1,37 @@
+﻿@model PlanningGenerator.Models.Pln.Employe
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+<h2>Suppresion</h2>
+
+<h3>Êtes vous sur de vouloir supprimer cet employé ?</h3>
+<div>
+    <h4>Employé</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="btn-group">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> 
+            <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </form>
+</div>
+</div>

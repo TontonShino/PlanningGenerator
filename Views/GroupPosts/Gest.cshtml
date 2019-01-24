@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PlanningGenerator.Models.Pln.GroupPost>
+@{
+    ViewData["Title"] = "Gestion de groupe - Poste";
+}
+
+<div class="container">
+    <h4>Poste</h4>
+    <dl>
+        <dt>Identifiant groupe</dt>
+        <dd>@ViewBag.Group.Id</dd>
+        <dt>Nom du groupe</dt>
+        <dd>@ViewBag.Group.Name</dd>
+    </dl>
+</div>
+
+<!--Section des postes à rajouter-->
+<div class="container">
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th colspan="12">Postes à rajouter</th>
+            </tr>
+            <tr>
+
+                <th scope="col">Identifiant groupe</th>
+                <th scope="col">Nom du groupe</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach(var i in ViewBag.NoReg)
+           {
+               <form asp-action="AddPost" asp-controller="GroupPosts">
+                  <tr>
+                      <td>@i.Id</td>
+                      <td>@i.Nom</td>
+                      
+                      <input name="IdPost" value="@i.Id" type="hidden"/>
+                      <input name="IdGroupPost" value="@ViewBag.Group.Id" type=hidden />
+                      <td><button type="submit" class="btn btn-success">Ajouter au groupe</button></td>
+                  </tr>
+               </form>
+           }
+        </tbody>
+    </table>
+</div>
+
+<!--Section des postes inscris-->
+<div class="container">
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th colspan="12">Postes inscris dans le groupe</th>
+            </tr>
+            <tr>
+                <th scope="col">Identifiant groupe</th>
+                <th scope="col">Nom du groupe</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model)
+            {
+                
+                    <form asp-action="RemovePost" asp-controller="GroupPosts">
+                        <tr>
+                            <input name="toRemove" value="@i.Id" type="hidden"/>
+                            <input  name="idGest" value="@ViewBag.Group.Id" type="hidden"/>
+                            <td>@i.Post.Id</td>
+                            <td>@i.Post.Nom</td>
+                            <td>@i.Post.Description</td>
+                            <td><button type="submit" class="btn btn-danger">Retirer du groupe</button></td>
+                        </tr>
+                        
+                    </form>
+                
+            }
+        </tbody>
+    </table>
+</div>
