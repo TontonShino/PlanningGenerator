@@ -76,16 +76,16 @@ dotnet ef database update --context PlnContext
 
 ### Captures
 Page d'accueil:
-![](docs/index.png)
+![](docs/index.PNG)
 
 Liste des plannings:
-![](docs/planninglist.png)
+![](docs/planninglist.PNG)
 
 Exemple de génération de planning:
-![](docs/planningExample.png)
+![](docs/planningExample.PNG)
 
 Autre exemple:
-![](docs/planningExample2.png)
+![](docs/planningExample2.PNG)
 
 
 ### Structure des données
