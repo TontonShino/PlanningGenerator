@@ -1,5 +1,5 @@
 # Planning Generator / Générateur de planning
-
+FR
 ## Présentation
 
 L'application permet selon les ressources fournis(Employés, temps de travail ,poste de travail, tranche horaires/jours) de générer et attribuer de manière alétoire les employés au poste de travail en fonction de leur nombre d'heures travaillés /jour et disponibilités.
@@ -102,3 +102,4 @@ Autre exemple:
 
 #### In English Please 
 (Coming soon)
+EN
